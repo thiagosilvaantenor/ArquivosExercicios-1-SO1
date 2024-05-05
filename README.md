@@ -8,7 +8,7 @@
 </div>
 
 ## Sobre o projeto
-Este projete contem a lista 1, de exercícios sobre arquivos e diretórios, da materia de Sistemas Operacionais 1 do curso de Análise e desenvolvimento de sistemas da FATEC Zona Leste.<br>
+Este projete contem a lista 1 de exercícios, sobre arquivos e diretórios, da materia de Sistemas Operacionais 1 do curso de Análise e desenvolvimento de sistemas da FATEC Zona Leste.<br>
 
 ## Índice
 =================
@@ -35,6 +35,8 @@ Exemplo:
 ![image](https://github.com/thiagosilvaantenor/ArquivosExercicios-1-SO1/assets/99970279/6a3f32ee-8d07-4ab8-b576-0a837536008d)
 
 Dataset: https://drive.google.com/open?id=1fsyrpTXbJuUcLa0TZKcu0g4aNLnNmiuB&usp=drive_fs
+
+<hr>
 
 2) O Arquivo SteamCharts.csv contém informações sobre popularidade dos jogos na plataforma Steam, estão
 contempladas as informações e divididas por ano e por mês. São mais de 83 mil registros de jogos.<br>
