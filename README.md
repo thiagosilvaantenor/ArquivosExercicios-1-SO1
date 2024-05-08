@@ -91,7 +91,7 @@ Dataset: https://drive.google.com/file/d/1QT29x3lMj4_j9Ca9XRyjWzuUjtTjNi58/view?
      
      * Métodos `excecaoAno e conversorDeMes` servem para verificar e, no caso do segundo método, tratar a entrada do mes que vira como número inteiro e precisa ser convertido em uma string com o nome do mês em ingles
      * Método `exibeMediaJogadores` vai
-       * receber e comparar `ano, mes e média Esperada`, jogos com o mesmo ano e mes e média de jogadores ativos >= a média esperada serão exibidos no terminal desta forma:
+       * Receber e comparar `ano, mes e média Esperada`, jogos com o mesmo ano e mes e média de jogadores ativos >= a média esperada serão exibidos no terminal desta forma:
        * Exemplo com os seguintes parametros: `ano = 2020, mes = 4, mediaEsperada = 50000`
          <div align="center">
            
@@ -99,11 +99,11 @@ Dataset: https://drive.google.com/file/d/1QT29x3lMj4_j9Ca9XRyjWzuUjtTjNi58/view?
          
          </div>
          
-    * Método `geraArquivoMediaDeJogadores` vai:
-      * receber `ano, mes, caminho, nome do arquivo`
-      * verificar: se o `caminho` existe e é um diretório, caso não passe na verificação é lançado uma exceção `Diretório invalido`;<br>se `nome do arquivo` contem a estensão `.csv`, caso não contenha é acrescentado a ela na hora que se cria a instancia de `File`
-      * Realizar a leitura do arquivo `SteamCharts.csv`, criação e escrita do novo arquivo, utilizando: `FileInputStream, InputStreamReader, BufferedReader, FileWriter, PrintWriter e StringBuffer`
-      * Caso o arquivo foi criado e está com pelo menos 1 linha preenchida é mostado no terminal `Arquivo criado com sucesso`, caso tenha menos que 1 linha é lançado a exceção `Erro, arquivo criado está vazio`
+      * Método `geraArquivoMediaDeJogadores` vai:
+        * Receber `ano, mes, caminho, nome do arquivo`
+        * Verificar: se o `caminho` existe e é um diretório, caso não passe na verificação é lançado uma exceção `Diretório invalido`;<br>se `nome do arquivo` contem a estensão `.csv`, caso não contenha é acrescentado a ela na hora que se cria a instancia de `File`
+        * Realizar a leitura do arquivo `SteamCharts.csv`, criação e escrita do novo arquivo, utilizando: `FileInputStream, InputStreamReader, BufferedReader, FileWriter, PrintWriter e StringBuffer`
+        * Caso o arquivo foi criado e está com pelo menos 1 linha preenchida é mostado no terminal `Arquivo criado com sucesso`, caso tenha menos que 1 linha é lançado a exceção `Erro, arquivo criado está vazio`
 
 ## Tecnologias
 - [Java](https://www.oracle.com/br/java/)
