@@ -74,7 +74,6 @@ Dataset: https://drive.google.com/file/d/1QT29x3lMj4_j9Ca9XRyjWzuUjtTjNi58/view?
       * Dentro de um bloco `Try...catch` é criado um menu para seleção das partes do exercicio 2 onde:
         * "1" executa o método `exibeMediaJogadores`, pedindo os paramêtros necessários atráves de um `InputDialog` do `JOptionPane`
         * "2" executa o método `geraArquivoMediaDeJogadores`, , pedindo os paramêtros necessários atráves de um `InputDialog` do `JOptionPane`
-      *  
     
   * Dentro do pacote **controller** estão as classes com métodos, que serão instanciada na camada **view**:  
     * Na classe `ArquivosController`:
