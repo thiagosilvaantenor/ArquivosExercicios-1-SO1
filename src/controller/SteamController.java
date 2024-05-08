@@ -14,25 +14,11 @@ public class SteamController {
 		super();
 	}
 
-//	private void excecaoAnoMes(int ano, String mes) throws IllegalArgumentException {
-//		if (ano > 2021 || ano < 2012) {
-//			throw new IllegalArgumentException("Ano invalido, a base de dados vai de 2012 ate 2021");
-//		}
-//		boolean achou = false;
-//		
-//		String[] meses = {"Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"};
-//		for (int i = 0; i < 12; i++) {
-//			System.out.println(meses[i]);
-//			if (mes == meses[i]) {
-//				achou = true;
-//				break;
-//			}
-//		}
-//		if (achou != true) {
-//			throw new IllegalArgumentException("Mes invalido");			
-//		}
-//		
-//	}
+	private void excecaoAno(int ano) throws IllegalArgumentException {
+		if (ano > 2021 || ano < 2012) {
+			throw new IllegalArgumentException("Ano invalido, a base de dados vai de 2012 ate 2021");
+		}
+	}
 
 	private String tradutorDeMes(int mes) {
 		String mesEmIngles = null;
@@ -73,13 +59,15 @@ public class SteamController {
 		case 12:
 			mesEmIngles = "December";
 			break;
+		default:
+			throw new IllegalArgumentException("Mes invalido");
 		}
 		return mesEmIngles;
 	}
 	
 	public void exibeMediaJogadores(int ano, int mes, double mediaEsperada) throws IOException {
-
-		//excecaoAnoMes(ano, mes);
+		excecaoAno(ano);
+		//mes vai vir em portugues e precisa ser traduzido em ingles
 		String mesEmIngles = tradutorDeMes(mes);
 		
 		File arq = new File("C:\\TEMP", "SteamCharts.csv");
@@ -96,14 +84,13 @@ public class SteamController {
 		linha = buffer.readLine();
 		
 		while (linha != null) {
-			String colunas[] = linha.split(",");
+			String[] colunas = linha.split(",");
 			coluna1 = Integer.parseInt(colunas[1]);
 			coluna3 = Double.parseDouble(colunas[3]);
-			if (ano == coluna1 && mesEmIngles == colunas[2] && mediaEsperada >= coluna3) {
+			if (ano == coluna1 && mesEmIngles.equals(colunas[2])  && mediaEsperada >= coluna3) {
 				achou = true;
 				System.out.print("Nome do jogo e média de jogadores ativos: ");
 				System.out.println(colunas[0] + " | " + coluna3);
-				break;
 			}
 			linha = buffer.readLine();
 		}
@@ -111,17 +98,19 @@ public class SteamController {
 		leitor.close();
 		buffer.close();
 		String fimLista;
-		if (achou)
-			fimLista = "A lista de jogos chegou ao fim";
-		else
-			fimLista = "Nenhum jogo lancado em " + mesEmIngles + ", " + ano
-					+ ", que tenha média de jogadores igual ou menor que: " + mediaEsperada;
+		if (achou) {
+			fimLista = "A lista de jogos chegou ao fim";			
+		}
+		else {
+			fimLista = "Nenhum jogo em " + mesEmIngles + ", " + ano
+					+ ", que tenha média de jogadores igual ou menor que: " + mediaEsperada;			
+		}
 		System.out.println(fimLista);
 	}
 	
 
 	public void geraArquivoMediaDeJogadores(int ano, int mes, String caminho, String nomeArq) throws IOException {
-		//excecaoAnoMes(ano, mes);
+		excecaoAno(ano);
 		//mes vai vir em portugues e precisa ser traduzido em ingles
 		String mesEmIngles = tradutorDeMes(mes);
 
@@ -141,33 +130,35 @@ public class SteamController {
 			FileWriter fileWriter = new FileWriter(arqNovo);
 			PrintWriter print = new PrintWriter(fileWriter);
 			String linha = buffer.readLine();
-			StringBuffer saida = new StringBuffer();
 			
 			// primeira linha contem apenas os nomes das colunas
 			linha = buffer.readLine();
 
 			while (linha != null) {
+				StringBuffer saida = new StringBuffer();
 				String[] colunas = linha.split(",");
 				int coluna1 = Integer.parseInt(colunas[1]);
 				double coluna3 = Double.parseDouble(colunas[3]);
 				
-				if (ano == coluna1 && mesEmIngles == colunas[2]) {
+				if (ano == coluna1 && mesEmIngles.equals(colunas[2])) {
 					saida.append(colunas[0] + ";");
 					saida.append(coluna3 + "\r\n");
 					print.write(saida.toString());
 				}
 				linha = buffer.readLine();
 			}
-			if (saida != null) {
-				System.out.println(saida);
-				print.flush();
-				System.out.println("Arquivo criado com sucesso");
-			}
+			buffer.close();
+			print.flush();
 			fluxo.close();
 			leitor.close();
-			buffer.close();
 			fileWriter.close();
 			print.close();
+			
+			if (arqNovo.length() >= 1) {
+				System.out.println("Arquivo criado com sucesso");
+			} else {
+				throw new IOException("Erro, arquivo criado está vazio");
+			}
 
 		} else {
 			throw new IOException("Diretorio invalido");
