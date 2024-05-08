@@ -8,7 +8,7 @@
 </div>
 
 ## Sobre o projeto
-Este projete contem a lista 1 de exercícios, sobre arquivos e diretórios, da materia de Sistemas Operacionais 1 do curso de Análise e desenvolvimento de sistemas da FATEC Zona Leste.<br>
+Este projeto contem a lista 1 de exercícios, sobre arquivos e diretórios, da materia de Sistemas Operacionais 1 do curso de Análise e desenvolvimento de sistemas da FATEC Zona Leste.<br>
 
 ## Índice
 =================
