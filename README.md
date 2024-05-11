@@ -13,7 +13,7 @@ Este projeto contem a lista 1 de exercícios, sobre arquivos e diretórios, da m
 ## Índice
 =================
 <!--ts-->
-* [Título](#exercícios-de-arquivos--sistemas-operacionais-1)
+* [Título](#lista-de-exercícios-de-arquivos-2--sistemas-operacionais-1)
 * [Sobre o Projeto](#sobre-o-projeto)
 * [Índice](#índice)
 * [Exercícios](#exercícios)
