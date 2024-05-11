@@ -1,4 +1,4 @@
-# Exercícios de Arquivos - Sistemas Operacionais 1
+# Lista de Exercícios de Arquivos 1 - Sistemas Operacionais 1
 
 <div align="center">
   
